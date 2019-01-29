@@ -1,0 +1,72 @@
+# Compiled Python Bytecode
+*.py[cod]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+ghostdriver.log
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+include
+.Python
+
+# Installer logs
+pip-log.txt
+.swp
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# py.test
+.cache/*
+.pytest_cache/*
+.pytest_config
+
+# Developer
+.project
+.pydevproject
+
+# Logs
+logs
+latest_logs
+log_archives
+archived_logs
+geckodriver.log
+
+# Reports
+latest_report
+report_archives
+archived_reports
+html_report.html
+report.html
+
+# Other
+selenium-server-standalone.jar
+proxy.zip
+verbose_hub_server.dat
+verbose_node_server.dat
+ip_of_grid_hub.dat
+downloaded_files
+archived_files
+assets
+temp
+temp*
+node_modules
+
+# System
+.DS_Store
+
+# IDE
+.idea/
