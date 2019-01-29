@@ -2,7 +2,17 @@
 
 Using [Selenium Grid](https://www.seleniumhq.org/) and [Pytest](https://docs.pytest.org/en/latest/) to automate distributed integrated testing
 
-## Installing
+## Prerequisites
+
+* Git
+* Java
+* Python 2.7 (on hub machine)
+
+On Windows: remember to add environment variables `python` (`C:\Python2.7\python.exe`) and `JVA_HOME` (`C:\Program Files\Java\jre-1.X.X\bin`)
+
+## Installing on the Hub
+
+Clone this repository
 
 ```
 source scripts/install.sh
@@ -43,6 +53,20 @@ The selenium standalone driver and webdrivers are included in the `resources` di
 
 Copy the webdrivers into a `$PATH` directory.
 
+* Mac: 
+
+    ```
+    sudo cp resources/mac/chromedriver /usr/local/bin/chromedriver
+    ```
+
+* Windows:
+
+    Copy the drivers under `resources/windows` into `C:\Windows`
+    
+## Installing on a Node
+
+Clone this repository. Have Java ()
+
 ## Start a hub or node
 
 To start a hub, execute
@@ -51,13 +75,11 @@ To start a hub, execute
 java -jar resources/selenium-server-standalone-3.141.59.jar -role hub -hubConfig scripts/config/hubconfig.json
 ```
 
-To start a node, edit `scripts/config/node1config.json`, and replace `"hub": "http://localhost:4444",` with your hub IP address. Execute
+To start a node, edit `scripts/config/node1config.json`, and replace `"hub": "http://localhost:4444",` with your hub IP address. Edit capabilities if necessary. Execute
 
 ```
 java -jar resources/selenium-server-standalone-3.141.59.jar -role node -nodeConfig scripts/config/node1config.json
 ```
-
-Likewise with node2.
 
 ## Running the tests
 
@@ -81,9 +103,11 @@ Run tests:
 pytest
 ```
 
-Where it runs all tests on Chrome and Firefox. `--browser` is a required argument that accepts a string of browser names split by ";". It is set automatically in `pytest.ini` but can be subject to change.
+Where it runs all tests on Chrome and Firefox. `--addconfig` is a required argument that accepts a string with the format `platformName:browserName1,browserName2,browserName3` with no spaces in between. 
 
-`pytest-xdist` is also installed and can be run or configured. ie:
+It is set automatically in `pytest.ini` but can be subject to change.
+
+`pytest-xdist` is also installed and can be run or configured. To run tests concurrently on 4 cores:
 
 ```
 pytest -n 4
@@ -97,4 +121,4 @@ See [Selenium - Desired Capabilities](https://github.com/SeleniumHQ/selenium/wik
 
 * Run tests concurrently
 * Optimize configuration files and add scripts
-* Dockerfile for scaling
+* Dockerfile for scaling, see [docker-selenium](https://github.com/SeleniumHQ/docker-selenium)

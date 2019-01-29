@@ -3,7 +3,11 @@ from application import Application
 
 
 def pytest_addoption(parser):
-    parser.addoption("--addconfig", action="append", default=[], help="Add a platform and its supported browsers. Format: platform:browser1,browser2")
+    parser.addoption(
+        "--addconfig", action="append", default=[],
+        help="Add a platform and its supported browsers. " +
+             "Format: platform:browser1,browser2")
+
 
 def pytest_generate_tests(metafunc):
     platform_browsers = []
@@ -17,6 +21,7 @@ def pytest_generate_tests(metafunc):
         scope='session'
     )
 
+
 @pytest.fixture(scope='session')
 def app(browser_name, platform):
     """
@@ -26,6 +31,7 @@ def app(browser_name, platform):
     :return: Application
     """
     return Application(browser_name, platform)
+
 
 @pytest.fixture(autouse=True, scope='session')
 def config(app):

@@ -1,4 +1,5 @@
-class TestSuit:
+class TestSuite:
+
     def test_1(self, app):
         app.driver.get('http://console.appadhoc.com')
         assert 'A/B Testing' in app.driver.title

@@ -1,4 +1,4 @@
-class TestSuit:
+class TestSuite:
 
     def test_1(self, app):
         app.driver.get('http://console.appadhoc.com')
@@ -7,4 +7,3 @@ class TestSuit:
     def test_2(self, app):
         app.driver.get('http://www.bing.com')
         assert True
-
