@@ -89,9 +89,12 @@ Where it runs all tests on Chrome and Firefox. `--browser` is a required argumen
 pytest -n 4
 ``` 
 
+## Node Configuration
+
+See [Selenium - Desired Capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities)
+
 ## TODO
 
 * Run tests concurrently
-* Set up testing for different platforms: WINDOWS, MACOS
 * Optimize configuration files and add scripts
 * Dockerfile for scaling
